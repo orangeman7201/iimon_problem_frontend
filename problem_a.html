@@ -1,0 +1,16 @@
+<html>
+  <body>
+    <div id="text-area">更新を押すとここに文字が表示されます。</div>
+    <button onClick="fetchAndSetCatFact()">更新</button>
+    <script>
+      const fetchAndSetCatFact = async() => {
+        (await fetch("https://catfact.ninja/fact")).json()
+        .then((data) => {
+          const target = document.getElementById("text-area")
+          target.innerHTML = ""
+          target.append(data.fact)
+        })
+      }
+    </script>
+  </body>
+</html>
